@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportPitjarusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get("/pitjarus")
+Route::get("/pitjarus", [ReportPitjarusController::class, "view"]);
+Route::post("/pitjarus", [ReportPitjarusController::class, "filter"]);

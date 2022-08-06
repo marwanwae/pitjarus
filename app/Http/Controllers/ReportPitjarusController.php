@@ -131,7 +131,11 @@ class ReportPitjarusController extends Controller
 
         $arrayTemp = [];
         $arrayTemp[0][] = "Brand";
+        if(!is_null($filterAreas)){
         $areaStores = $storeAreas->whereIn("area_id",$filterAreas);
+        }else{
+            $areaStores = $storeAreas;
+        }
         foreach($areaStores as $storeArea){
             
             $arrayTemp[0][] = $storeArea->area_name;
